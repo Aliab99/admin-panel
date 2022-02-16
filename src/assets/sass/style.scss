@@ -1,0 +1,87 @@
+
+:root{
+    // dark theme colors
+    --veryDark-blue : #161D30;
+    --Dark-blue : #292F45;
+    --light-gray : #F3F3F3;
+    --btn-purple : #7466F1;
+    --border-gray : rgb(206, 206, 206);
+    --green : #2AC871;
+    --red : #EA5455;
+    --blue : #01DEF8;
+}
+body{
+    font-family: 'Segoe UI';
+    color: var(--Dark-blue);
+    background-color: var(--light-gray);
+    // sidebar styles
+    aside{
+        min-height: 100vh;
+        ul{
+            li:not(:nth-child(2)){
+                cursor: pointer;
+            }
+        }
+    }
+    main{
+        // navbar styles
+        nav{
+            .icon-bell , .icon-basket , .icon-search{
+                font-size: 1.25rem;
+                cursor: pointer;
+            }
+        }
+        article{
+            .icon-blue{
+                background-color: rgba(1, 224, 249, 0.1);
+                color: var(--blue);
+                cursor: pointer;
+            }
+            .icon-green{
+                background-color: rgba(42, 198, 112, 0.1);
+                color: var(--green);
+                cursor: pointer;
+            }
+            .icon-red{
+                background-color: rgba(234, 83, 83, 0.1);
+                color: var(--red);
+                cursor: pointer;
+            }
+            .icon-dark{
+                background-color: rgba(41, 47, 69, 0.1);
+                color: var(--Dark-blue);
+                cursor: pointer;
+            }
+            .btn-purple{
+                background-color: var(--btn-purple);
+                color: var(--light-gray);
+            }
+            .btn-purple:hover{
+                color: #fff;
+            }
+            .btn-purple:active{
+                box-shadow: 0px 0px 0px 5px rgba(116, 102, 241, 0.5);
+            }
+        }
+    }
+}
+// setting icons font size
+[class^="icon-"], [class*=" icon-"] {
+    font-size: 1.125rem;
+}
+input{
+    background-color: var(--light-gray);
+    border: 1px solid var(--border-gray);
+    outline: none;
+    color: rgba(41, 47, 69, 0.7);
+}
+.bg-white{
+    background-color: #fff;
+}
+.bg-red{
+    background-color: var(--red)!important;
+}
+.bg-gray{
+    color:var(--red);
+    background-color: var(--light-gray);
+}
