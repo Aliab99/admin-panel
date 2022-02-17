@@ -1,13 +1,16 @@
-:root {
-  // dark theme colors
-  --veryDark-blue: #161d30;
-  --Dark-blue: #292f45;
-  --light-gray: #f3f3f3;
-  --btn-purple: #7466f1;
-  --border-gray: rgb(206, 206, 206);
-  --green: #2ac871;
-  --red: #ea5455;
-  --blue: #01def8;
+
+
+:root{
+    // dark theme colors
+    --veryDark-blue : #161D30;
+    --Dark-blue : #393f57;
+    --light-gray : #F3F3F3;
+    --btn-purple : #7466F1;
+    --border-gray : rgb(206, 206, 206);
+    --green : #2AC871;
+    --red : #EA5455;
+    --blue : #01DEF8;
+
 }
 body {
   font-family: "Segoe UI";
@@ -77,8 +80,21 @@ input {
   outline: none;
   color: rgba(41, 47, 69, 0.7);
 }
+
+input{
+    font-size: 1rem;
+    background-color: #e8e8e8;
+    height: 32px;
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.28);
+    text-align: center;
+    color: rgba(41, 47, 69, 0.75);
+    outline: none;
+
 .bg-white {
   background-color: #fff;
+
 }
 .bg-red {
   background-color: var(--red) !important;
