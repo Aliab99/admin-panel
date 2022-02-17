@@ -1,18 +1,25 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+	<article class="row gx-3 gy-4 Home">
+		<section class="col-12 col-md-12">
+			<!-- Statistics section(بخش آمار) -->
+			<Statistic />
+			<!-- end Statistics section(پایان بخش آمار) -->
+			<!-- finance section -->
+			<Finance />
+			<!-- end finance section -->
+		</section>
+	</article>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Statistic from "@/components/Statistic.vue";
+import Finance from "@/components/Finance.vue";
 
-export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
-}
+	export default {
+		name: 'Home',
+    components:{
+      Statistic,
+      Finance,
+    }
+	};
 </script>
