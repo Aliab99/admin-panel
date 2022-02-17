@@ -1,5 +1,5 @@
 <template>
-	<div class="px-2 py-3 shadow-sm bg-white rounded">
+	<div class="px-2 py-2 shadow-sm bg-white rounded">
 		<!-- header section -->
 		<header class="d-flex justify-content-between px-3">
 			<div class="form-check form-switch">
