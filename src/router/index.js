@@ -4,6 +4,7 @@ import About from "../views/About.vue";
 import DiscountCode from "../views/DiscountCode.vue";
 import Products from "../views/Products.vue";
 import Users from "../views/Users.vue";
+import Orders from "../views/Orders.vue";
 const routes = [
   {
     path: "/",
@@ -15,6 +16,11 @@ const routes = [
     path: "/about",
     name: "About",
     component: About,
+  },
+  {
+    path: "/orders",
+    name: "Orders",
+    component: Orders,
   },
   {
     path: "/DiscountCode",

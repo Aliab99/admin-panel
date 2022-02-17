@@ -24,15 +24,18 @@
           ><span class="icon-user-o"></span
         ></router-link>
       </li>
-      <li class="my-1"><span class="icon-basket"></span></li>
+
+      <li class="my-1">
+        <router-link class="link" to="/orders"
+          ><span class="icon-basket"></span
+        ></router-link>
+      </li>
       <li class="my-1">
         <!-- Products link -->
         <router-link class="link" to="/products"
-          ><span class="icon-th-outline"></span>
-        </router-link>
+          ><span class="icon-th-outline"></span
+        ></router-link>
       </li>
-      <li class="my-1"><span class="icon-eye"></span></li>
-      <li class="my-1"><span class="icon-mail"></span></li>
     </ul>
   </aside>
 </template>
