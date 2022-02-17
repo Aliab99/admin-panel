@@ -19,12 +19,21 @@
 				<span class="icon-chart-pie-outline"></span>
 			</li>
 			<li class="my-1"><span class="icon-user-o"></span></li>
-			<li class="my-1"><span class="icon-basket"></span></li>
-			<li class="my-1"><span class="icon-th-outline"></span></li>
+			<li class="my-1">
+        <router-link to="/products"
+          ><span class="icon-basket"></span>
+        
+      </li>
+      <li class="my-1">
+        <router-link to="/products"
+          ><span class="icon-th-outline"></span>
+        </router-link>
+      </li>
 			<li class="my-1"><span class="icon-eye"></span></li>
 			<li class="my-1"><span class="icon-mail"></span></li>
 		</ul>
 	</aside>
+
 </template>
 
 <script>
@@ -34,6 +43,7 @@
 </script>
 
 <style scoped>
+
   .router-link-exact-active{
     padding: 10px;
     border-radius: 5px;
