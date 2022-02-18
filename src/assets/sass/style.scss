@@ -11,7 +11,7 @@
 
 }
 body {
-  font-family: "Segoe UI";
+  font-family: "IRANSansWeb",'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: var(--Dark-blue);
   background-color: var(--light-gray);
   // sidebar styles
@@ -100,4 +100,8 @@ input{
 .bg-gray {
   color: var(--red);
   background-color: var(--light-gray);
+}
+@font-face {
+  font-family: 'IRANSansWeb';
+  src: url('../font/IRANSansWeb.ttf');
 }
