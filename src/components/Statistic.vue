@@ -20,9 +20,12 @@
       >
         <!-- icon -->
         <div class="p-2 rounded-pill icon-green mx-2">
-          <div
-            class="icon-chart-pie-outline lh-sm p-3 icon-green rounded-pill"
-          ></div>
+          <router-link class="link" to="/amarha">
+            <div
+              class="icon-chart-pie-outline lh-sm p-3 icon-green rounded-pill"
+            >
+            </div>
+          </router-link>
         </div>
         <!-- text -->
         <div>

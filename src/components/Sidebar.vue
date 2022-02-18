@@ -1,5 +1,5 @@
 <template>
-  <aside class="col-1 bg-white shadow-sm rounded d-none d-sm-block">
+  <aside class="bg-white shadow-sm rounded d-none d-sm-block">
     <p class="text-center my-3">Nikted Logo</p>
     <ul class="m-0 p-0 d-flex flex-column align-items-center list-unstyled">
       <li class="my-4">
@@ -9,31 +9,31 @@
         </router-link>
       </li>
       <li class="mt-2 mb-4"><span class="icon-dot-3"></span></li>
-      <li class="my-1">
+      <li class="my-2">
         <!-- discount link -->
         <router-link class="link" to="/DiscountCode">
           <span class="icon-percent"></span>
         </router-link>
       </li>
       <!-- Amarha link -->
-      <li class="my-1">
+      <li class="my-2">
         <router-link class="link" to="/amarha">
           <span class="icon-chart-pie-outline"></span>
         </router-link>
       </li>
       <!-- Users link -->
-      <li class="my-1">
+      <li class="my-2">
         <router-link class="link" to="/users"
           ><span class="icon-user-o"></span
         ></router-link>
       </li>
 
-      <li class="my-1">
+      <li class="my-2">
         <router-link class="link" to="/orders"
           ><span class="icon-basket"></span
         ></router-link>
       </li>
-      <li class="my-1">
+      <li class="my-2">
         <!-- Products link -->
         <router-link class="link" to="/products"
           ><span class="icon-th-outline"></span
@@ -51,6 +51,7 @@ export default {
 
 <style scoped>
 aside {
+  width: 6%;
   position: sticky;
   top: 0;
   height: 100vh;
