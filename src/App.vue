@@ -31,7 +31,8 @@
 		methods:{
 			toggleSideBar(){
 				this.SidebarShow=!this.SidebarShow;
-				this.mainBoxSize = this.SidebarShow ? 'col-sm-11' : 'col-sm-12';
+				let a = 
+				this.SidebarShow ?  (this.mainBoxSize = 'col-sm-11') : setTimeout(() => this.mainBoxSize='col-sm-12',400);
 			}
 		},
 		components: {
