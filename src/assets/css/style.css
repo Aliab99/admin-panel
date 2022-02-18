@@ -1,6 +1,6 @@
 :root { --veryDark-blue: #161D30; --Dark-blue: #393f57; --light-gray: #F3F3F3; --btn-purple: #7466F1; --border-gray: rgb(206, 206, 206); --green: #2AC871; --red: #EA5455; --blue: #01DEF8; }
 
-body { font-family: "Segoe UI"; color: var(--Dark-blue); background-color: var(--light-gray); }
+body { font-family: "IRANSansWeb",'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: var(--Dark-blue); background-color: var(--light-gray); }
 
 body aside { min-height: 100vh; }
 
@@ -33,4 +33,6 @@ input { font-size: 1rem; background-color: #e8e8e8; height: 32px; border-radius:
 .bg-red { background-color: var(--red) !important; }
 
 .bg-gray { color: var(--red); background-color: var(--light-gray); }
+
+@font-face { font-family: 'IRANSansWeb'; src: url("../font/IRANSansWeb.ttf"); }
 /*# sourceMappingURL=style.css.map */

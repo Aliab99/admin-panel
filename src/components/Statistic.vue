@@ -42,7 +42,9 @@
       >
         <!-- icon -->
         <div class="p-2 rounded-pill icon-blue mx-2">
-          <div class="icon-user-o lh-sm p-3 icon-blue rounded-pill"></div>
+          <router-link class="link" to="/users">
+            <div class="icon-user-o lh-sm p-3 icon-blue rounded-pill"></div>
+          </router-link>
         </div>
         <!-- text -->
         <div>
@@ -62,7 +64,9 @@
       >
         <!-- icon -->
         <div class="p-2 rounded-pill icon-red mx-2">
-          <div class="icon-th-outline lh-sm p-3 icon-red rounded-pill"></div>
+          <router-link class="link" to="/products">
+            <div class="icon-th-outline lh-sm p-3 icon-red rounded-pill"></div>
+          </router-link>
         </div>
         <!-- text -->
         <div>
