@@ -47,6 +47,11 @@ export default {
 </script>
 
 <style scoped>
+aside{
+  position: sticky;
+  top:0;
+  height: 100vh;
+}
 .router-link-exact-active {
   padding: 10px;
   border-radius: 5px;
