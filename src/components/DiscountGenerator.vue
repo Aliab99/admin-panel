@@ -2,19 +2,11 @@
 	<div class="px-2 py-2 shadow-sm bg-white rounded">
 		<!-- header section -->
 		<header class="d-flex justify-content-between px-3">
-			<div class="form-check form-switch">
-				<input
-					class="form-check-input"
-					type="checkbox"
-					role="switch"
-					id="flexSwitchCheckChecked"
-					checked
-					@click="toggleType"
-				/>
-				<label class="form-check-label" for="flexSwitchCheckChecked"
-					>نوع تخفیف</label
-				>
+			<!-- toggle button -->
+			<div @click="toggleType"  class="toggle-btn">
+				<div :style="toggleState"></div>
 			</div>
+			<!-- end toggle button -->
 			<h5 class="d-none d-lg-block">پنل ایجاد کد تخفیف</h5>
 			<span class="icon-percent"></span>
 		</header>
@@ -199,6 +191,8 @@
 				expired: '',
 				status: '',
 				description: '',
+				// toggle state variable for cary toggle style
+      			toggleState:{right:'3px'},
 			};
 		},
 		methods: {
@@ -258,19 +252,20 @@
 					'Z',
 				];
 				let code = '';
-        chars
+				chars;
 				for (let i = 1; i < 4; i++) {
 					code += chars[Math.floor(Math.random() * chars.length)];
 				}
 				for (let i = 1; i < 4; i++) {
-          code += Math.floor(Math.random() * 10);
-        }
-        this.DiscountCode = code;
+					code += Math.floor(Math.random() * 10);
+				}
+				this.DiscountCode = code;
 			},
 			toggleType() {
 				this.DiscountType =
 					this.DiscountType == 'value' ? 'percent' : 'value';
 			},
+			// on submit event form validation
 			submit() {
 				let obj = {};
 				let lowerCase = /[a-z]/g;
@@ -358,15 +353,39 @@
 				}
 			},
 		},
+		watch: {
+			// apply toggle animation by changing DiscountType state
+			DiscountType() {
+				if (this.DiscountType == 'value') {
+					let right = 23;
+					let toggleTime = setInterval(() => {
+						this.toggleState = { right: `${right}px` };
+						right--;
+						if (right == 3) {
+							clearInterval(toggleTime);
+						}
+					}, 14);
+				} else {
+					let left = 23;
+					let toggleTime = setInterval(() => {
+						this.toggleState = { left: `${left}px` };
+						left--;
+						if (left == 3) {
+							clearInterval(toggleTime);
+						}
+					}, 14);
+				}
+			},
+		},
 	};
 </script>
 
 <style scoped>
 	/* discount code generator section styles*/
-  a{
-    color: #01DEF8 !important;
-    cursor: pointer;
-  }
+	a {
+		color: #01def8 !important;
+		cursor: pointer;
+	}
 	.line {
 		stroke: #7466f1;
 		stroke-width: 2;

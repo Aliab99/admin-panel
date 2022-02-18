@@ -62,15 +62,38 @@ export default {
     toggleSideBar(){
       if(this.SidebarShow){
         this.SidebarShow = false;
-        this.toggleState = {left:'3px'}
+        // this.toggleState = {left:'3px'}
       }
       else{
         this.SidebarShow = true;
-        this.toggleState = {right:'3px'}
+        // this.toggleState = {right:'3px'}
       }
       this.$emit('toggleSideBar',this.toggleState);
     }
   },
+  watch:{
+    SidebarShow(){
+      if(this.SidebarShow){
+        let right = 23;
+        let toggleTime = setInterval(()=>{
+          this.toggleState = {right:`${right}px`}
+          right --;
+          if(right == 3){
+            clearInterval(toggleTime);
+          }
+        },14);
+      }else{
+        let left = 23;
+        let toggleTime = setInterval(()=>{
+          this.toggleState = {left:`${left}px`}
+          left --;
+          if(left == 3){
+            clearInterval(toggleTime);
+          }
+        },14);
+      }
+    }
+  }
 };
 </script>
 
