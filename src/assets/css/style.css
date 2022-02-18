@@ -24,9 +24,11 @@ body main article .btn-purple:active { -webkit-box-shadow: 0px 0px 0px 5px rgba(
 
 [class^="icon-"], [class*=" icon-"] { font-size: 1.125rem; }
 
-input { background-color: var(--light-gray); border: 1px solid var(--border-gray); outline: none; color: rgba(41, 47, 69, 0.7); }
+textarea:focus { border: 1px solid #01DEF8 !important; -webkit-box-shadow: 0px 0px 2px 4px rgba(1, 223, 248, 0.3) !important; box-shadow: 0px 0px 2px 4px rgba(1, 223, 248, 0.3) !important; }
 
-input { font-size: 1rem; background-color: #e8e8e8; height: 32px; border-radius: 16px; border: none; -webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.28); box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.28); text-align: center; color: rgba(41, 47, 69, 0.75); outline: none; }
+input:focus { border: 1px solid #01DEF8; -webkit-box-shadow: 0px 0px 2px 4px rgba(1, 223, 248, 0.3); box-shadow: 0px 0px 2px 4px rgba(1, 223, 248, 0.3); }
+
+input { background-color: var(--light-gray); border: 1px solid var(--border-gray); font-size: 1rem; background-color: #e8e8e8; height: 32px; border-radius: 16px; border: none; -webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.28); box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.28); text-align: center; color: rgba(41, 47, 69, 0.75); outline: none; }
 
 .bg-white { background-color: #fff; }
 
