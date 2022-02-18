@@ -15,8 +15,11 @@
           <span class="icon-percent"></span>
         </router-link>
       </li>
+      <!-- Amarha link -->
       <li class="my-1">
-        <span class="icon-chart-pie-outline"></span>
+        <router-link class="link" to="/amarha">
+          <span class="icon-chart-pie-outline"></span>
+        </router-link>
       </li>
       <!-- Users link -->
       <li class="my-1">
@@ -47,9 +50,9 @@ export default {
 </script>
 
 <style scoped>
-aside{
+aside {
   position: sticky;
-  top:0;
+  top: 0;
   height: 100vh;
 }
 .router-link-exact-active {
