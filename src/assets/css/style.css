@@ -37,4 +37,8 @@ input { background-color: var(--light-gray); border: 1px solid var(--border-gray
 .bg-gray { color: var(--red); background-color: var(--light-gray); }
 
 @font-face { font-family: 'IRANSansWeb'; src: url("../font/IRANSansWeb.ttf"); }
+
+.toggle-btn { width: 36px; height: 16px; background-color: var(--border-gray); border-radius: 8px; position: relative; cursor: pointer; }
+
+.toggle-btn div { width: 10px; height: 10px; background-color: var(--red); border-radius: 50%; position: absolute; top: 3px; }
 /*# sourceMappingURL=style.css.map */

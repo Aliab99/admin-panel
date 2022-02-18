@@ -1,8 +1,14 @@
 <template>
-  <nav class="navbar bg-white shadow-sm rounded mb-4 overflow-hidden">
+  <nav class="d-flex align-items-center justify-content-between  bg-white shadow-sm rounded mb-4 py-1 overflow-hidden">
+    <div class="px-4 d-flex align-items-center">
+      <div @click="toggleSideBar"  class="toggle-btn">
+        <div :style="toggleState"></div>
+      </div>
+      <p class="m-0 px-4">sidebar Toggle</p>
+    </div>
     <div
       class="
-        w-100
+        
         d-md-flex
         justify-content-start
         align-items-center
@@ -45,12 +51,25 @@ export default {
   data() {
     return {
       searchBoxShow: false,
+      SidebarShow:true,
+      toggleState:{right:'3px'},
     };
   },
   methods: {
     searchBoxToggle() {
       this.searchBoxShow = this.searchBoxShow ? false : true;
     },
+    toggleSideBar(){
+      if(this.SidebarShow){
+        this.SidebarShow = false;
+        this.toggleState = {left:'3px'}
+      }
+      else{
+        this.SidebarShow = true;
+        this.toggleState = {right:'3px'}
+      }
+      this.$emit('toggleSideBar',this.toggleState);
+    }
   },
 };
 </script>
