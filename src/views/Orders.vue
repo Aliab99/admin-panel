@@ -1,5 +1,8 @@
 <template>
-  <Order />
+  <div class="d-flex row">
+    <Order />
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
