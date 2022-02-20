@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import axios from '../node_modules/axios/dist/axios'
 import App from './App.vue'
 import router from './router'
 import store from './store'
@@ -10,5 +11,7 @@ import 'popper.js/dist/popper.min.js';
 import 'bootstrap/dist/js/bootstrap.min.js'
 import './assets/css/style.css'
 import './assets/iconFont/css/fontello.css'
+
+axios.defaults.baseURL = 'http://nikted.com/';
 
 createApp(App).use(store).use(router).mount('#app')
