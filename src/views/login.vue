@@ -93,7 +93,7 @@
 						this.passwordEM = 'please enter a password';
 					} else {
 						this.passwordEM =
-							'Password must be at least 5 characters';
+							'Password must be at least 8 characters';
 					}
 				} else {
 					this.passwordE = false;
@@ -111,6 +111,7 @@
 							}
 						}).catch(error => {
 							// handle error
+							alert('لطفا رمز و نام کاربری را بررسی کنید و مجددا چک کنید')
 							console.log(error);
 						})
 				}

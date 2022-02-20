@@ -3,7 +3,7 @@
 	<div class="col-12 col-md-9">
 		<div class="">
             <div class="table-responsive">
-                <h2 class="text-center">لغو شده ها</h2>
+                <h2 class="text-center">مرجوع شده</h2>
                 <table class="table table-light table-striped table-hover">
                     <thead>
                         <tr>
