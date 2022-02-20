@@ -3,7 +3,7 @@
 		<!-- header section -->
 		<header class="d-flex justify-content-between px-3">
 			<!-- toggle button -->
-			<div @click="toggleType"  class="toggle-btn">
+			<div @click="toggleType" class="toggle-btn">
 				<div :style="toggleState"></div>
 			</div>
 			<!-- end toggle button -->
@@ -29,7 +29,7 @@
 							class="w-100"
 							required
 							type="text"
-							v-model.lazy="DiscountCode"
+							v-model.lazy="obj.code"
 							name="DiscountCode"
 						/>
 						<p class="m-0 text-center">
@@ -53,7 +53,7 @@
 							class="w-100"
 							required
 							type="text"
-							v-model.lazy="DiscountName"
+							v-model.lazy="obj.name"
 							name="DiscountName"
 						/>
 					</div>
@@ -62,14 +62,14 @@
 				<!-- discount value and max uses section -->
 				<div class="d-flex justify-content-center mb-4">
 					<label class="fs-6 col-3 text-center" for="DiscountValue">{{
-						DiscountType == 'value' ? 'مقدار تخفیف' : 'درصد تخفیف'
+						obj.type == 'fixed' ? 'مقدار تخفیف' : 'درصد تخفیف'
 					}}</label>
 					<div class="col-3">
 						<input
 							class="w-100"
 							required
 							type="number"
-							v-model.lazy="DiscountValue"
+							v-model.lazy="value"
 							min="0"
 							name="DiscountValue"
 						/>
@@ -82,7 +82,7 @@
 							class="w-100"
 							required
 							type="number"
-							v-model.lazy="MaxUses"
+							v-model.lazy="obj.max_uses"
 							min="0"
 							name="MaxUses"
 						/>
@@ -98,7 +98,7 @@
 						<input
 							class="w-100"
 							required
-							v-model.lazy="started"
+							v-model.lazy="obj.starts_at"
 							type="date"
 							name="ُstarted"
 						/>
@@ -110,7 +110,7 @@
 						<input
 							class="w-100"
 							required
-							v-model.lazy="expired"
+							v-model.lazy="obj.expires_at"
 							type="date"
 							name="expired"
 						/>
@@ -124,13 +124,13 @@
 					<!-- Active radio -->
 					<div class="form-check form-check-inline">
 						<input
-							v-model.lazy="status"
+							v-model.lazy="obj.status"
 							required
 							class="form-check-input"
 							type="radio"
 							name="inlineRadioOptions"
 							id="inlineRadio1"
-							value="Active"
+							value="1"
 						/>
 						<label class="form-check-label" for="inlineRadio1"
 							>فعال</label
@@ -139,12 +139,12 @@
 					<!-- deActive radio -->
 					<div class="form-check form-check-inline">
 						<input
-							v-model.lazy="status"
+							v-model.lazy="obj.status"
 							class="form-check-input"
 							type="radio"
 							name="inlineRadioOptions"
 							id="inlineRadio2"
-							value="deActive"
+							value="0"
 						/>
 						<label class="form-check-label" for="inlineRadio2"
 							>غیر فعال</label
@@ -160,7 +160,7 @@
 					<div class="col-8">
 						<input
 							class="w-100"
-							v-model.lazy="description"
+							v-model.lazy="obj.description"
 							type="text"
 							name="description"
 							id=""
@@ -178,24 +178,32 @@
 </template>
 
 <script>
+	import axios from '../../node_modules/axios/dist/axios';
 	export default {
 		name: 'Finance',
 		data() {
 			return {
-				DiscountType: 'value',
-				DiscountCode: '',
-				DiscountName: '',
-				DiscountValue: '',
-				MaxUses: '',
-				started: '',
-				expired: '',
-				status: '',
-				description: '',
+				obj:{
+					name: '',
+					code: '',
+					description: '',
+					type: 'fixed',
+					value: 0,
+					percent: 0,
+					max_uses: '',
+					status: '',
+					starts_at: '',
+					expires_at: '',
+				},
+				isReload:this.reload,
+				value:'',
+				DiscountType:'fixed',
 				// toggle state variable for cary toggle style
-      			toggleState:{right:'3px'},
+				toggleState: { right: '3px' },
 			};
 		},
 		methods: {
+				
 			RndCodeGenerator() {
 				let chars = [
 					'a',
@@ -259,104 +267,98 @@
 				for (let i = 1; i < 4; i++) {
 					code += Math.floor(Math.random() * 10);
 				}
-				this.DiscountCode = code;
+				this.obj.code = code;
 			},
 			toggleType() {
+				this.obj.type =
+					this.obj.type == 'fixed' ? 'percent' : 'fixed';
 				this.DiscountType =
-					this.DiscountType == 'value' ? 'percent' : 'value';
+					this.DiscountType == 'fixed' ? 'percent' : 'fixed';
 			},
 			// on submit event form validation
 			submit() {
-				let obj = {};
+				this.obj.status = parseInt(this.obj.status);
 				let lowerCase = /[a-z]/g;
 				let upperCase = /[A-Z]/g;
-				if (this.DiscountCode.length < 5) {
+				let valid = true;
+				// code
+				if (this.obj.code.length < 5) {
 					alert(
 						'Please enter more than 5 characters for Discount Code',
 					);
+					valid = false;
 				} else {
 					if (
-						this.DiscountCode.match(lowerCase) ||
-						this.DiscountCode.match(upperCase)
+						this.obj.code.match(lowerCase) ||
+						this.obj.code.match(upperCase)
 					) {
-						obj = {
-							...obj,
-							...{ DiscountCode: this.DiscountCode },
-						};
 					} else {
 						alert(
-							'Discount code must contains at least on character',
+							'Discount code must contains at least on character and one number',
 						);
+						valid = false;
 					}
 				}
-				if (this.DiscountName.length < 5) {
+				// name
+				if (this.obj.name.length < 5) {
+					valid = false;
 					alert(
 						'Please enter more than 5 characters for Discount name',
 					);
 				} else {
 					if (
-						this.DiscountName.match(lowerCase) ||
-						this.DiscountName.match(upperCase)
+						this.obj.name.match(lowerCase) ||
+						this.obj.name.match(upperCase)
 					) {
-						obj = {
-							...obj,
-							...{ DiscountName: this.DiscountName },
-						};
 					} else {
+						valid = false;
 						alert(
 							'Discount name must contains at least on character',
 						);
 					}
 				}
-				if (this.DiscountType == 'percent') {
-					if (this.DiscountValue > 100 || this.DiscountValue < 0) {
+				if (this.obj.type == 'percent') {
+					if (this.value > 100 || this.value < 0) {
 						alert(
 							'Discount value must be between 0 and 100 percent',
 						);
-					} else {
-						obj = {
-							...obj,
-							...{ DiscountValue: this.DiscountValue },
-						};
-						console.log(
-							'🚀 ~ file: DiscountGenerator.vue ~ line 187 ~ submit ~ obj',
-							obj,
-						);
+						valid = false;
+					} else{
+						this.obj.percent = this.value;
 					}
+
 				} else {
-					if (this.DiscountValue < 10000) {
+					if (this.value < 10000) {
 						alert(
 							'Discount value must be grater than 10000 tomans',
 						);
-					} else {
-						obj = {
-							...obj,
-							...{ DiscountValue: this.DiscountValue },
-						};
+						valid = false;
+					} 
+					else{
+						this.obj.value = this.value;
 					}
 				}
-				if (this.MaxUses < 0) {
+				if (this.obj.max_uses < 0) {
 					alert('MaxUses must be greater than zero');
-				} else {
-					obj = { ...obj, ...{ MaxUses: this.MaxUses } };
+					valid = false;
 				}
-				obj = { ...obj, ...{ started: this.started } };
-				obj = { ...obj, ...{ expired: this.expired } };
-				obj = { ...obj, ...{ status: this.status } };
-				obj = { ...obj, ...{ DiscountType: this.DiscountType } };
-				if (JSON.stringify(obj).split(',').length == 8) {
-					obj = { ...obj, ...{ description: this.description } };
-					console.log(
-						'🚀 ~ file: DiscountGenerator.vue ~ line 209 ~ submit ~ obj',
-						obj,
-					);
+				if(valid){
+					console.log(this.obj)
+					axios.post('/api/admin/discount/create',this.obj)
+					.then((response) => {
+
+					})
+					.catch((error) => {
+						// handle error
+						console.log(error);
+					});
 				}
 			},
 		},
 		watch: {
 			// apply toggle animation by changing DiscountType state
 			DiscountType() {
-				if (this.DiscountType == 'value') {
+				if (this.obj.type == 'fixed') {
 					let right = 23;
 					let toggleTime = setInterval(() => {
 						this.toggleState = { right: `${right}px` };

@@ -41,8 +41,11 @@
 		},
 		watch:{
 			$route(){
-				this.$store.commit('onStart');
+				this.$store.dispatch('onStart');
 			}
+		},
+		mounted(){
+			this.$store.dispatch('onStart');
 		}
 	};
 </script>

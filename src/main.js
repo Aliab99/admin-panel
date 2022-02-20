@@ -12,6 +12,6 @@ import 'bootstrap/dist/js/bootstrap.min.js'
 import './assets/css/style.css'
 import './assets/iconFont/css/fontello.css'
 
-axios.defaults.baseURL = 'http://nikted.com/';
+axios.defaults.baseURL = 'http://api.prolimanikted.ir/';
 
 createApp(App).use(store).use(router).mount('#app')
