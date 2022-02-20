@@ -17,7 +17,7 @@
     >
       <!-- profile photo container -->
       <div class="d-flex flex-row-reverse pb-2 pb-md-0">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand">
           <img
             src="../assets/images/Ellipse.png"
             alt="profile Photo"
@@ -26,10 +26,11 @@
           />
         </a>
         <div class="text-end mx-2">
-          <p class="fs-5 lh-sm m-0">profile Name</p>
+          <p class="fs-5 lh-sm m-0">{{ $store.state.username }}</p>
           <p class="fs-6 lh-1 m-0">Admin</p>
         </div>
       </div>
+      <button @click="logOut" class="btn1 bg-red ">log uot</button>
       <div class="d-inline-flex flex-row-reverse">
         <span @click="searchBoxToggle" class="icon-search mx-4"></span>
         <!-- TODO:search input must be visually hidden -->
@@ -56,6 +57,10 @@ export default {
     };
   },
   methods: {
+    logOut() {
+      this.$store.commit('logOut');
+      this.$router.push('/login');
+    },
     searchBoxToggle() {
       this.searchBoxShow = this.searchBoxShow ? false : true;
     },
@@ -98,6 +103,17 @@ export default {
 </script>
 
 <style scoped>
+.btn1{
+  padding: 2px 8px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  color: white;
+}
+.btn1:hover{
+  color: white;
+  background-color: rgb(255, 115, 0) !important;
+}
 .fade-enter-from {
   opacity: 0;
 }

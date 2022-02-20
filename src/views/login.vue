@@ -106,7 +106,8 @@
 							// handle success
 							if(response.status == 200){
 								this.$store.commit('logIn',response.data.token);
-								this.$router.push('/')
+								this.$router.push('/');
+								this.$store.commit('usernameUpdate',response.data.username);
 							}
 						}).catch(error => {
 							// handle error

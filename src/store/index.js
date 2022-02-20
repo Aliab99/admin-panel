@@ -5,8 +5,12 @@ export default createStore({
 	state: {
 		isAuthentic: false,
 		token: '',
+    username: '',
 	},
 	mutations: {
+    usernameUpdate(state,username){
+      state.username = username;
+    },
 		onStart(state) {
 			let token = localStorage.getItem('token');
 			if (token) {

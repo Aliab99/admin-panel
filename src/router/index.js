@@ -99,7 +99,6 @@ const router = createRouter({
 router.beforeEach((to, from) => {
 	
 	if (to.meta.logInRequired && !store.state.isAuthentic) {
-    console.log(store.state.isAuthentic);
 		return {
 			path: '/login',
 			query: { redirect: to.fullPath },

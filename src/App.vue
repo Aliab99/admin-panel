@@ -42,8 +42,6 @@
 		watch:{
 			$route(){
 				this.$store.commit('onStart');
-				console.log(this.$store.state.isAuthentic,this.$store.state.token);
-				console.log(this.$store.state.isAuthentic);
 			}
 		}
 	};
