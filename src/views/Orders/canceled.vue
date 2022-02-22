@@ -64,7 +64,7 @@ export default {
     name:'canceled',
     data(){
         return{
-            orders:{}
+            orders:[]
         }
     },
     mounted(){
@@ -77,6 +77,11 @@ export default {
 						// handle error
 						console.log(error);
 					});
+    },
+    watch:{
+        orders(){
+            this.$store.state.canceled = this.orders.length;
+        }
     }
 }
 </script>

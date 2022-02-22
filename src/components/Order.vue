@@ -11,7 +11,7 @@
           "
         >
           <router-link to="/orders/">درحال پردازش</router-link>
-          <span class="badge bg-red rounded-pill">14</span>
+          <span class="badge bg-red rounded-pill">{{$store.state.onProcess}}</span>
         </li>
         <li
           class="
@@ -22,7 +22,7 @@
           "
         >
           <router-link to="/orders/sended">ارسال شده</router-link>
-          <span class="badge bg-red rounded-pill">14</span>
+          <span class="badge bg-red rounded-pill">{{$store.state.sended}}</span>
         </li>
         <li
           class="
@@ -33,7 +33,7 @@
           "
         >
           <router-link to="/orders/delivered">تحویل شده</router-link>
-          <span class="badge bg-red rounded-pill">14</span>
+          <span class="badge bg-red rounded-pill">{{$store.state.delivered}}</span>
         </li>
         <li
           class="
@@ -44,7 +44,7 @@
           "
         >
           <router-link to="/orders/canceled"> لغو شده</router-link>
-          <span class="badge bg-red rounded-pill">2</span>
+          <span class="badge bg-red rounded-pill">{{$store.state.canceled}}</span>
         </li>
         <li
           class="
@@ -55,7 +55,7 @@
           "
         >
           <router-link to="/orders/returned">مرجوع شده</router-link>
-          <span class="badge bg-red rounded-pill">1</span>
+          <span class="badge bg-red rounded-pill">{{$store.state.returned}}</span>
         </li>
       </ul>
     </div>

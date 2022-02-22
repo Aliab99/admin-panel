@@ -6,6 +6,15 @@ export default createStore({
 		isAuthentic: false,
 		token: '',
 		username: '',
+
+// -------------------------------------------
+		onProcess:'',
+		canceled: '',
+		delivered: '',
+		returned: '',
+		sended: '',
+// -------------------------------------------
+
 	},
 	mutations: {
 		usernameUpdate(state, username) {
